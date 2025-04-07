@@ -9,6 +9,6 @@
   "minimumCoreVersion": "10",
   "compatibleCoreVersion": "11",
   "url": "https://www.englerlabs.com",
-  "manifest": "https://your-website-or-github.com/external-api-forwarder/module.json",
+  "manifest": "https://github.com/Engler-Labs/EldritchMurmursFoundryModule/blob/main/module.json",
   "download": "https://your-website-or-github.com/external-api-forwarder/external-api-forwarder.zip"
 }
