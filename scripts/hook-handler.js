@@ -4,7 +4,7 @@ Hooks.once("init", () => {
     name: "External API Key",
     hint: "Only the GM can set this. It will be used in all outgoing requests.",
     scope: "world",
-    config: game.user.isGM(),  // Only visible in settings UI to GM
+    config: game.users.current.isGM,  // Only visible in settings UI to GM
     type: String,
     default: ""
   });
@@ -17,7 +17,7 @@ async function sendToExternalAPI(payload) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "X-API-Key": apiKey
+      "X-API-Key": apiKey || ""
     },
     body: JSON.stringify(payload)
   });
