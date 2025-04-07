@@ -1,0 +1,14 @@
+{
+  "name": "eldritch-murmurs-foundry-module",
+  "title": "Eldritch Murmurs Foundry Module",
+  "description": "A system-agnostic Foundry VTT module that forwards dice rolls and actor updates to an external API with a shared API key.",
+  "version": "0.1.0",
+  "author": "Gary R. Engler, Ph.D.",
+  "esmodules": ["scripts/hook-handler.js"],
+  "styles": [],
+  "minimumCoreVersion": "10",
+  "compatibleCoreVersion": "11",
+  "url": "https://www.englerlabs.com",
+  "manifest": "https://your-website-or-github.com/external-api-forwarder/module.json",
+  "download": "https://your-website-or-github.com/external-api-forwarder/external-api-forwarder.zip"
+}
