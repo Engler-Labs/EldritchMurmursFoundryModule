@@ -4,7 +4,7 @@ Hooks.once("init", () => {
     name: "External API Key",
     hint: "Only the GM can set this. It will be used in all outgoing requests.",
     scope: "world",
-    config: game.user.isGM,  // Only visible in settings UI to GM
+    config: game.user.isGM(),  // Only visible in settings UI to GM
     type: String,
     default: ""
   });
@@ -54,7 +54,7 @@ Hooks.once("ready", async () => {
   const users = game.users.contents.map(user => ({
     id: user.id,
     name: user.name,
-    isGM: user.isGM,
+    isGM: user.isGM(),
     active: user.active
   }));
 
@@ -69,7 +69,7 @@ Hooks.on("createUser", async (user, options, userId) => {
   const newUser = {
     id: user.id,
     name: user.name,
-    isGM: user.isGM,
+    isGM: user.isGM(),
     active: user.active
   };
 
