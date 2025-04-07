@@ -1,6 +1,13 @@
 
 Hooks.once("init", () => {
+  console.log("Game");
+  console.log(game);
+
+  console.log("Game.Users");
   console.log(game.users);
+
+  console.log("Game.User");
+  console.log(game.user);
 
   game.settings.register("external-api-forwarder", "apiKey", {
     name: "External API Key",
