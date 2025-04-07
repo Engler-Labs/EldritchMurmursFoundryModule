@@ -7,7 +7,7 @@
   "esmodules": ["scripts/hook-handler.js"],
   "styles": [],
   "minimumCoreVersion": "10",
-  "compatibleCoreVersion": "11",
+  "compatibleCoreVersion": "12`",
   "url": "https://www.englerlabs.com",
   "manifest": "https://github.com/Engler-Labs/EldritchMurmursFoundryModule/releases/download/V0.1.001/module.json",
   "download": "https://github.com/Engler-Labs/EldritchMurmursFoundryModule/releases/download/V0.1.001/EldritchMurmursFoundryModule-main.zip"
