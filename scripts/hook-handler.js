@@ -1,22 +1,6 @@
 
 Hooks.once("init", () => {
-  console.log("Game");
-  console.log(game);
 
-  console.log("Game.Users");
-  console.log(game.users);
-
-  console.log("Game.User");
-  console.log(game.user);
-
-  game.settings.register("external-api-forwarder", "apiKey", {
-    name: "External API Key",
-    hint: "Only the GM can set this. It will be used in all outgoing requests.",
-    scope: "world",
-    config: game.users.current.isGM,  // Only visible in settings UI to GM
-    type: String,
-    default: ""
-  });
 });
 
 async function sendToExternalAPI(payload) {
@@ -60,6 +44,24 @@ Hooks.on("updateActor", async (actor, changedData, options, userId) => {
 });
 
 Hooks.once("ready", async () => {
+  console.log("Game");
+  console.log(game);
+
+  console.log("Game.Users");
+  console.log(game.users);
+
+  console.log("Game.User");
+  console.log(game.user);
+
+  game.settings.register("external-api-forwarder", "apiKey", {
+    name: "External API Key",
+    hint: "Only the GM can set this. It will be used in all outgoing requests.",
+    scope: "world",
+    config: game.users.current.isGM,  // Only visible in settings UI to GM
+    type: String,
+    default: ""
+  });
+
   const users = game.users.contents.map(user => ({
     id: user.id,
     name: user.name,
