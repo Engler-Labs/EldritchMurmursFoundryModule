@@ -1,5 +1,5 @@
 {
-  "name": "eldritch-murmurs-foundry-module",
+  "id": "eldritch-murmurs-foundry-module",
   "title": "Eldritch Murmurs Foundry Module",
   "description": "A system-agnostic Foundry VTT module that forwards dice rolls and actor updates to an external API with a shared API key.",
   "version": "0.1.0",
