@@ -44,15 +44,6 @@ Hooks.on("updateActor", async (actor, changedData, options, userId) => {
 });
 
 Hooks.once("ready", async () => {
-  console.log("Game");
-  console.log(game);
-
-  console.log("Game.Users");
-  console.log(game.users);
-
-  console.log("Game.User");
-  console.log(game.user);
-
   game.settings.register("external-api-forwarder", "apiKey", {
     name: "External API Key",
     hint: "Only the GM can set this. It will be used in all outgoing requests.",
