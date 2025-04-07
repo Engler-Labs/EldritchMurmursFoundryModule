@@ -65,7 +65,7 @@ Hooks.once("ready", async () => {
   const users = game.users.contents.map(user => ({
     id: user.id,
     name: user.name,
-    isGM: user.isGM(),
+    isGM: user.isGM,
     active: user.active
   }));
 
@@ -80,7 +80,7 @@ Hooks.on("createUser", async (user, options, userId) => {
   const newUser = {
     id: user.id,
     name: user.name,
-    isGM: user.isGM(),
+    isGM: user.isGM,
     active: user.active
   };
 
