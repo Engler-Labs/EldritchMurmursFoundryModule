@@ -1,5 +1,7 @@
 
 Hooks.once("init", () => {
+  console.log(game.users);
+
   game.settings.register("external-api-forwarder", "apiKey", {
     name: "External API Key",
     hint: "Only the GM can set this. It will be used in all outgoing requests.",
