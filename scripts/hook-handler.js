@@ -5,6 +5,7 @@ Hooks.once("init", () => {
 
 async function sendToExternalAPI(payload) {
   const apiKey = game.settings.get("external-api-forwarder", "apiKey");
+  console.log(apiKey);
 
   await fetch("https://eldritch-murmurs.englerlabs.com/v0/foundry", {
     method: "POST",
