@@ -7,20 +7,37 @@ async function sendToExternalAPI(payload) {
   const apiKey = game.settings.get("external-api-forwarder", "apiKey");
   console.log(apiKey);
 
+  console.log(payload);
+  const payload_to_send = { ...payload,
+    session_id: game.sessionId,
+    game_system: game.system.title,
+  };
+
   await fetch("https://eldritch-murmurs.englerlabs.com/v0/foundry", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       "X-API-Key": apiKey || ""
     },
-    body: JSON.stringify(payload)
+    body: JSON.stringify(payload_to_send)
+  }).then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json(); // or response.text() if the response is not JSON
+  })
+  .then(data => {
+    console.log('Data received:', data);
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
   });
 }
 
 Hooks.on("createChatMessage", async (message, options, userId) => {
   const payload = {
     event: "createChatMessage",
-    userId,
+    userId: userId,
     content: message.content,
     speaker: message.speaker,
     isRoll: message.isRoll,
@@ -34,10 +51,10 @@ Hooks.on("createChatMessage", async (message, options, userId) => {
 Hooks.on("updateActor", async (actor, changedData, options, userId) => {
   const payload = {
     event: "updateActor",
-    userId,
+    userId: userId,
     actorId: actor.id,
     actorName: actor.name,
-    changedData,
+    changedData: changedData,
     timestamp: Date.now()
   };
 
@@ -63,7 +80,7 @@ Hooks.once("ready", async () => {
 
   await sendToExternalAPI({
     event: "initialUserList",
-    users,
+    users: users,
     timestamp: Date.now()
   });
 });
