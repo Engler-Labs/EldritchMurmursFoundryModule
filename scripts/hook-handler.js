@@ -1,3 +1,6 @@
+import {EldritchMurmursFoundryEvents} from './dataclasses/EldritchMurmursFoundryEvents.mjs'
+
+
 Hooks.once("init", () => {
 
 });
