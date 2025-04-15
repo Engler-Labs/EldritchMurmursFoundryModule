@@ -14,6 +14,9 @@ async function sendToExternalAPI(payload) {
         ...payload,
         session_id: game.sessionId,
         game_system: game.system.title,
+        world_id: game.world.id,
+        world_title: game.world.title,
+        campaign_id: game.settings.get("campaign-identifier", "campaignId"),
     };
 
     await fetch("https://eldritch-murmurs.englerlabs.com/v0/foundry", {
