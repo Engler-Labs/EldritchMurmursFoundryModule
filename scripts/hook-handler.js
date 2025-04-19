@@ -23,7 +23,8 @@ async function sendToExternalAPI(payload) {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "X-API-Key": apiKey || ""
+            "X-API-Key": apiKey || "",
+            "X-Product": "EldritchMurmursFoundryModule"
         },
         body: JSON.stringify(payload_to_send)
     }).then(response => {
